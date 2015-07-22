@@ -1,0 +1,16 @@
+CC=clang
+OPTIONS=-c
+SOURCES=informer.c informer-test.c
+OBJS=$(SOURCES:.c=.o)
+EXE=Informer
+
+all:
+	$(CC) $(OPTIONS) $(SOURCES)
+	$(CC) -pthread $(OBJS) -o $(EXE)
+
+all-debug:
+	$(CC) $(OPTIONS) -g $(SOURCES)
+	$(CC) -pthread $(OBJS) -o $(EXE)
+
+clean:
+	rm $(OBJS) $(EXE)

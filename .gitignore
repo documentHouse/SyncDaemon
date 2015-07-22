@@ -1,0 +1,7 @@
+*~
+*.bak
+*.o
+hd1/**
+hd2/**
+sync_daemon.log
+ListTest
