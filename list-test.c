@@ -35,9 +35,12 @@ int main() {
   iterate(alist, sumer, &sum);
 
   printf("Here is the sum: %d\n", sum);
+  printf("List size = %d\n", list_size(alist));
 
   int *val = remove_front(alist);
   printf("The val: %d\n", *val);
+  free(val);
+  printf("List size = %d\n", list_size(alist));
   if (is_empty(alist))
     printf("The list is empty\n");
   else
@@ -45,7 +48,8 @@ int main() {
 
   val = remove_front(alist);
   printf("The val: %d\n", *val);
-
+  free(val);
+  printf("List size = %d\n", list_size(alist));
   if (is_empty(alist))
     printf("The list is empty\n");
   else
@@ -53,13 +57,16 @@ int main() {
 
   val = remove_front(alist);
   printf("The val: %d\n", *val);
-
+  free(val);
+  printf("List size = %d\n", list_size(alist));
   if (is_empty(alist))
     printf("The list is empty\n");
   else
     printf("The list is not empty\n");
 
   destroy_list_and_items(alist);
+
+  usleep(5000000);
 
   printf("End.\n");
 

@@ -1,7 +1,12 @@
 *~
 *.bak
 *.o
+*.val
 hd1/**
 hd2/**
 sync_daemon.log
+kill_daemon.sh
+show_daemon.sh
+ProcessID
 ListTest
+SyncDaemon

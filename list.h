@@ -13,7 +13,7 @@ void destroy_list_and_items(list_t *list);
 
 void append_item(list_t *list, void *item);
 
-void iterate(list_t *list, void (*process)(void *elem, void *aux), void *aux);
+int iterate(list_t *list, int (*process)(void *elem, void *aux), void *aux);
 
 void *front(list_t *list);
 

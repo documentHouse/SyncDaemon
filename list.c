@@ -72,16 +72,20 @@ void append_item(list_t *list, void *item) {
   list->size++;
 }
 
-void iterate(list_t *list, void (*process)(void *elem, void *aux), void *aux) {
+int iterate(list_t *list, int (*process)(void *elem, void *aux), void *aux) {
 
   if ((!list) || (is_empty(list)))
-    return;
+    return -1;
   
+  int ret = 0;
   node_t *curr = list->head;
   while (curr) {
-    process(curr->value,aux);
+    if ((ret = process(curr->value,aux)) != 0)
+      return ret;
     curr = curr->next;
   }
+
+  return ret;
 }
 
 void *front(list_t *list) {

@@ -1,12 +1,12 @@
 CC=clang
 OPTIONS=-c
-SOURCES=list.c list-test.c
+SOURCES=tracker.c tracker-test.c
 OBJS=$(SOURCES:.c=.o)
-EXE=ListTest
+EXE=Tracker
 
 all:
 	$(CC) $(OPTIONS) $(SOURCES)
-	$(CC) $(OBJS) -o $(EXE)
+	$(CC) -pthread $(OBJS) -o $(EXE)
 
 debug:
 	$(CC) $(OPTIONS) -g -DDEBUG $(SOURCES)

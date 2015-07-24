@@ -1,8 +1,8 @@
 CC=clang
 OPTIONS=-c
-SOURCES=informer.c list.c daemonize.c
+SOURCES=informer.c list.c tracker.c configuration.c syncdaemon.c 
 OBJS=$(SOURCES:.c=.o)
-EXE=Daemonize
+EXE=SyncDaemon
 
 all:
 	$(CC) $(OPTIONS) $(SOURCES)
@@ -14,3 +14,6 @@ debug:
 
 clean:
 	rm $(OBJS) $(EXE)
+
+trace:	debug
+	valgrind --leak-check=yes --track-origins=yes ./$(EXE)
